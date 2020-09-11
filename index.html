@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>How to write correct software</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -249,6 +249,20 @@
         </section>  
 
         <section>
+          <h2>Test quality</h2>
+          <p>Test must have a really low probability of passing by chance</p>
+          <pre><code data-trim class="javascript">
+            expect(divide(4,2)).not.toBe(null)
+          </code></pre>  
+          <pre class="fragment"><code data-trim class="javascript">
+            expect(divide(4,2)).toBeGreaterThan(3)
+          </code></pre>  
+          <pre class="fragment"><code data-trim class="javascript">
+            expect(divide(4,2)).toBe(2)
+          </code></pre>  
+        </section>  
+
+        <section>
           <h2>BDD</h2>
           <h3>Cucumber</h3>
           <pre><code data-trim class="haskell">
@@ -284,9 +298,10 @@ Then("the variable should contain {int}", function(number) {
            </code></pre> 
         </section>  
 
+<!--
         <section>
           <h2>Do we need more confidence?</h2>
-        </section>  
+        </section>  -->
 
         <section>
           <h2><code>divide</code> - Iteration 1</h2>
@@ -469,11 +484,7 @@ function divide(n: number, k: number): number {
         </section>
 
         <section>
-          <h2>Modeling the domain and the codomain</h2>
-          <ul>
-            <li>Domain ~ set of valid input values</li>
-            <li>Codomain ~ set of valid output values</li>
-          </ul>  
+          <h2>Modeling inputs and outputs</h2>
           <pre class="fragment"><code class=" typescript" data-trim >const divide = (x: any, y: any): any  => x / y</code></pre>
           <pre class="fragment"><code class=" typescript" data-trim >const divide = (x: number, y: number): number  => x / y</code></pre>
           <pre class="fragment"><code class=" typescript" data-trim >const divide = (x: number, y: NotZeroNumber): number  => x / y</code></pre>
@@ -556,8 +567,6 @@ divideInvTimes x y = ?left_to_the_reader
           </code></pre>  
         </section>  
 
-        
-
         <section>
           <h2>Proving a program</h2> 
           <ul>
@@ -568,7 +577,7 @@ divideInvTimes x y = ?left_to_the_reader
 
         <section>
           <h2>We're sure our code respect 100% the spec</h2>
-          <h3 class="fragment">But what if the spec is wrong ‽</h3>
+          <h3 class="fragment">But what if the spec is wrong‽</h3>
         </section>  
 
         <section>
