@@ -1,119 +1,143 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>How to write correct software</title>
+    <title>How to write correct software</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
     <style type="text/css">
-      .reveal .title-with-shadow {
-        text-shadow: black 5px 5px 3px;
-      }
-      .arrow-up {
-        width: 0; 
-        height: 0; 
-        border-left: 25px solid transparent;
-        border-right: 25px solid transparent;
-        
-        border-bottom: 25px solid cyan;
-      }
-      .arrow-down {
-        width: 0; 
-        height: 0; 
-        border-left: 25px solid transparent;
-        border-right: 25px solid transparent;
-        
-        border-top: 25px solid orange;
-      }
-    </style>  
+        .reveal .title-with-shadow {
+            text-shadow: black 5px 5px 3px;
+        }
+
+        .arrow-up {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+
+            border-bottom: 25px solid cyan;
+        }
+
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+
+            border-top: 25px solid orange;
+        }
+
+        code.box {
+            background-color: #272822;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/annotations.js"></script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section data-background-image="img/milky-way.png">
-          <h2 class="title-with-shadow" style="margin-bottom: 45px">How to <br/>Write Correct Software</h2>
-				</section>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-background-image="img/milky-way.png">
+            <!--<h2 class="title-with-shadow" style="margin-bottom: 45px">How to <br/>Write Correct Software</h2> -->
+            <h2 class="title-with-shadow">Can you trust your code?</h2>
+        </section>
 
         <section>
-          <h2><em>Correct</em> software?</h2>
-          <h3 class="fragment">for each possible inputs, <br /> produces <br />the expected - specified - output</h3>
-        </section> 
+            <h2><em>Correct</em> software?</h2>
+            <h3 class="fragment">for each possible inputs, <br/> produces <br/>the expected - specified - output</h3>
+        </section>
 
         <section>
-          <h2>How to <em>know</em> <br />a program is correct?</h2>
-        </section>  
+            <h2>How to <em>know</em> <br/>a program is correct?</h2>
+        </section>
 
         <section>
-          <h2>Epistemology</h2>
-          <h3>philosophy of knowledge</h3>
-          
-        </section>  
+            <h2>Epistemology</h2>
+            <h3>philosophy of knowledge</h3>
+        </section>
 
         <section>
-          <h2>Knowledge <br/>justified true belief</h2>
-          <img src="img/teapot.jpg" alt="teapot" style="width:600px"/>
-        </section>  
+            <h2>Knowledge?</h2>
+            <h3 class="fragment">justified true belief</h3>
+          <!--  <img src="img/teapot.jpg" alt="teapot" style="width:600px"/> -->
+        </section>
 
-<!--
+
+        <!--
+                <section>
+                  <h2>Mathematic Proof</h2>
+                  <ul>
+                    <li class="fragment">a formal system. eg. propositional logic</li>
+                    <li class="fragment">Axioms. eg. Two sets are equal (are the same set) if they have the same elements.</li>
+                    <li class="fragment">a proposition holds if we can derive (use of deductive system) from the axioms.</li>
+                   </ul>
+                   <div class="fragment" style="position:relative; background: white; border:1px solid black; color: black; padding:10px 5px;">
+                    <div>
+                      <div style="border:1px solid #888; display:inline-block; padding:8px 15px;margin-right:300px;">A, A → B ⊢ B</div>
+                      <div style="border:1px solid #888; display:inline-block; padding:8px 15px;">(ℕ, +)</div>
+                      <div style="border:1px solid #888; display:inline-block; padding:8px 15px;">x < x + 1</div>
+                    </div>
+                    <div style="border:1px solid black; margin:20px;" ></div>
+                    <div>
+                      <div style="border:1px solid #888; display:inline-block; padding:8px 15px;">0 < 1</div>
+                    </div>
+
+                   </div>
+                </section>
+        -->
         <section>
-          <h2>Mathematic Proof</h2>
-          <ul>
-            <li class="fragment">a formal system. eg. propositional logic</li>
-            <li class="fragment">Axioms. eg. Two sets are equal (are the same set) if they have the same elements.</li>
-            <li class="fragment">a proposition holds if we can derive (use of deductive system) from the axioms.</li>
-           </ul> 
-           <div class="fragment" style="position:relative; background: white; border:1px solid black; color: black; padding:10px 5px;">
-            <div>
-              <div style="border:1px solid #888; display:inline-block; padding:8px 15px;margin-right:300px;">A, A → B ⊢ B</div>
-              <div style="border:1px solid #888; display:inline-block; padding:8px 15px;">(ℕ, +)</div>
-              <div style="border:1px solid #888; display:inline-block; padding:8px 15px;">x < x + 1</div>
-            </div>
-            <div style="border:1px solid black; margin:20px;" ></div>
-            <div>
-              <div style="border:1px solid #888; display:inline-block; padding:8px 15px;">0 < 1</div>
-            </div>
+            <h2>Empirical Science epistemology</h2>
+            <!-- thanks vecta.io -->
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="200 50 590 300"
+                 width="590" height="300" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff"
+                 fill-rule="evenodd" style="background-color:white;" font-size="14" text-anchor="middle">
+                <defs>
+                    <path d="M0 0l4 5h-8z" stroke="none" id="A"/>
+                </defs>
+                <path d="M349.6063 803.1496v9.449" fill="none"/>
+                <path d="M425.197 75.5906h160.63v56.693h-160.63z"/>
+                <text fill="#000" stroke="none">
+                    <tspan x="505.5118" y="108.5571">Hypothesis</tspan>
+                </text>
+                <path d="M595.2756 245.6693h160.63v56.693h-160.63z"/>
+                <text fill="#000" stroke="none">
+                    <tspan x="675.5905" y="278.6358">Experiments</tspan>
+                </text>
+                <path d="M226.7716 245.6693h160.63v56.693h-160.63z"/>
+                <text fill="#000" stroke="none">
+                    <tspan x="307.0865" y="278.6358">Observations</tspan>
+                </text>
+                <g transform="translate(340.1574 132.2835)">
+                    <path fill="none" d="M127.1585 4.393L0 113.3858" stroke-width="3"/>
+                    <use fill="#000" x="88.189" xlink:href="#A"
+                         transform="matrix(.97618915 1.13888311 -1.13888311 .97618915 46.19435467 -100.43696246)"
+                         stroke-width="2"/>
+                </g>
+                <g transform="translate(387.4015 274.0158)">
+                    <path fill="none" d="M6.75 0h201.124" stroke-width="3"/>
+                    <use fill="#000" xlink:href="#A" transform="matrix(0 -1.5 1.5 0 0 0)" stroke-width="2"/>
+                </g>
+                <g transform="translate(566.9291 132.2835)">
+                    <path fill="none" d="M82.8223 108.03L0 0" stroke-width="3"/>
+                    <use fill="#000" x="57.9528" y="75.5905" xlink:href="#A"
+                         transform="matrix(-1.19040762 .91264982 -.91264982 -1.19040762 224.90431097 150.4786451)"
+                         stroke-width="2"/>
+                </g>
+            </svg>
 
-           </div> 
-        </section>  
--->
-        <section>
-          <h2>"Hard" Science epistemology</h2>
-          <!-- thanks vecta.io -->
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="200 50 590 300" width="590" height="300" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd" style="background-color:white;" font-size="14" text-anchor="middle">
-            <defs>
-              <path d="M0 0l4 5h-8z" stroke="none" id="A"/>
-            </defs>
-            <path d="M349.6063 803.1496v9.449" fill="none"/><path d="M425.197 75.5906h160.63v56.693h-160.63z"/>
-            <text fill="#000" stroke="none"><tspan x="505.5118" y="108.5571">Hypothesis</tspan></text>
-            <path d="M595.2756 245.6693h160.63v56.693h-160.63z"/>
-            <text fill="#000" stroke="none"><tspan x="675.5905" y="278.6358">Experiments</tspan></text>
-            <path d="M226.7716 245.6693h160.63v56.693h-160.63z"/>
-            <text fill="#000" stroke="none"><tspan x="307.0865" y="278.6358">Observations</tspan></text>
-            <g transform="translate(340.1574 132.2835)">
-              <path fill="none" d="M127.1585 4.393L0 113.3858" stroke-width="3"/>
-              <use fill="#000" x="88.189" xlink:href="#A" transform="matrix(.97618915 1.13888311 -1.13888311 .97618915 46.19435467 -100.43696246)" stroke-width="2"/>
-            </g>
-            <g transform="translate(387.4015 274.0158)">
-              <path fill="none" d="M6.75 0h201.124" stroke-width="3"/>
-              <use fill="#000" xlink:href="#A" transform="matrix(0 -1.5 1.5 0 0 0)" stroke-width="2"/>
-            </g>
-            <g transform="translate(566.9291 132.2835)">
-              <path fill="none" d="M82.8223 108.03L0 0" stroke-width="3"/>
-              <use fill="#000" x="57.9528" y="75.5905" xlink:href="#A" transform="matrix(-1.19040762 .91264982 -.91264982 -1.19040762 224.90431097 150.4786451)" stroke-width="2"/>
-            </g>
-          </svg>
-
-          <p class="fragment">We never prove that a hypothesis is true; <br/> we're increasing our confidence level that it's not false</p>
-        </section>  
+            <p class="fragment">We never prove that a hypothesis is true; <br/> we're increasing our confidence level
+                that it's not false</p>
+        </section>
 
         <!--
         <section>
@@ -129,203 +153,290 @@
         -->
 
         <section>
-          <h2>Back to software</h2>
-           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="200 50 590 300" width="590" height="300" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd" style="background-color:white;" font-size="14" text-anchor="middle">
-            <defs>
-              <path d="M0 0l4 5h-8z" stroke="none" id="A"/>
-            </defs>
-            <path d="M349.6063 803.1496v9.449" fill="none"/><path d="M425.197 75.5906h160.63v56.693h-160.63z"/>
-            <text fill="#000" stroke="none">
-              <tspan x="505.5118" y="98.5571">Hypothesis</tspan>
-              <tspan x="505.5118" y="120.5571">Software is correct</tspan>
-            </text>
-            <path d="M595.2756 245.6693h160.63v56.693h-160.63z"/>
-            <text fill="#000" stroke="none">
-              <tspan x="675.5905" y="268.6358">Experiments</tspan>
-              <tspan x="675.5905" y="288.6358">Tests</tspan>
-            </text>
-            <path d="M226.7716 245.6693h160.63v56.693h-160.63z"/>
-            <text fill="#000" stroke="none">
-              <tspan x="307.0865" y="268.6358">Observations</tspan>
-              <tspan x="307.0865" y="288.6358">Software behaviour</tspan>
-            </text>
-            <g transform="translate(340.1574 132.2835)">
-              <path fill="none" d="M127.1585 4.393L0 113.3858" stroke-width="3"/>
-              <use fill="#000" x="88.189" xlink:href="#A" transform="matrix(.97618915 1.13888311 -1.13888311 .97618915 46.19435467 -100.43696246)" stroke-width="2"/>
-            </g>
-            <g transform="translate(387.4015 274.0158)">
-              <path fill="none" d="M6.75 0h201.124" stroke-width="3"/>
-              <use fill="#000" xlink:href="#A" transform="matrix(0 -1.5 1.5 0 0 0)" stroke-width="2"/>
-            </g>
-            <g transform="translate(566.9291 132.2835)">
-              <path fill="none" d="M82.8223 108.03L0 0" stroke-width="3"/>
-              <use fill="#000" x="57.9528" y="75.5905" xlink:href="#A" transform="matrix(-1.19040762 .91264982 -.91264982 -1.19040762 224.90431097 150.4786451)" stroke-width="2"/>
-            </g>
-          </svg>
-        </section>  
+            <h2>Back to software</h2>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="200 50 590 300"
+                 width="590" height="300" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff"
+                 fill-rule="evenodd" style="background-color:white;" font-size="14" text-anchor="middle">
+                <defs>
+                    <path d="M0 0l4 5h-8z" stroke="none" id="A"/>
+                </defs>
+                <path d="M349.6063 803.1496v9.449" fill="none"/>
+                <path d="M425.197 75.5906h160.63v56.693h-160.63z"/>
+                <text fill="#000" stroke="none">
+                    <tspan x="505.5118" y="98.5571">Hypothesis</tspan>
+                    <tspan x="505.5118" y="120.5571">Software is correct</tspan>
+                </text>
+                <path d="M595.2756 245.6693h160.63v56.693h-160.63z"/>
+                <text fill="#000" stroke="none">
+                    <tspan x="675.5905" y="268.6358">Experiments</tspan>
+                    <tspan x="675.5905" y="288.6358">Tests</tspan>
+                </text>
+                <path d="M226.7716 245.6693h160.63v56.693h-160.63z"/>
+                <text fill="#000" stroke="none">
+                    <tspan x="307.0865" y="268.6358">Observations</tspan>
+                    <tspan x="307.0865" y="288.6358">Software behaviour</tspan>
+                </text>
+                <g transform="translate(340.1574 132.2835)">
+                    <path fill="none" d="M127.1585 4.393L0 113.3858" stroke-width="3"/>
+                    <use fill="#000" x="88.189" xlink:href="#A"
+                         transform="matrix(.97618915 1.13888311 -1.13888311 .97618915 46.19435467 -100.43696246)"
+                         stroke-width="2"/>
+                </g>
+                <g transform="translate(387.4015 274.0158)">
+                    <path fill="none" d="M6.75 0h201.124" stroke-width="3"/>
+                    <use fill="#000" xlink:href="#A" transform="matrix(0 -1.5 1.5 0 0 0)" stroke-width="2"/>
+                </g>
+                <g transform="translate(566.9291 132.2835)">
+                    <path fill="none" d="M82.8223 108.03L0 0" stroke-width="3"/>
+                    <use fill="#000" x="57.9528" y="75.5905" xlink:href="#A"
+                         transform="matrix(-1.19040762 .91264982 -.91264982 -1.19040762 224.90431097 150.4786451)"
+                         stroke-width="2"/>
+                </g>
+            </svg>
+        </section>
 
         <section>
-          <h2>Manual testing</h2>
-          <ul>
-            <li>Ultra-Low level of confidence</li>
-            <li>Takes a lot of time</li>
-            <li>Reproductibility issues</li>
-            <li>Very bad at finding regression</li>
-          </ul>  
-          <br />
-          <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="cat typing on a keyboard" style="width:300px;" />
-        </section>  
-
-         <section>
-          <h2>Increasing the confidence?</h2>
-         </section> 
+            <h2>Manual testing</h2>
+            <ul>
+                <li>Ultra-Low level of confidence</li>
+                <li>Takes a lot of time</li>
+                <li>Reproductibility issues</li>
+                <li>Very bad at finding regression</li>
+            </ul>
+            <br/>
+            <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="cat typing on a keyboard"
+                 style="width:300px;"/>
+        </section>
 
         <section>
-          <h2>Manual testing rationalized</h2>
-          <h3>The infamous Test spreadsheet</h3>
-          <ul>
-            <li>Low level of confidence</li>
-            <li>Takes a lot of time</li>
-            <li>Better at regression finding</li>
-          </ul>  
-          <br />
-          <img src="https://media.giphy.com/media/l1IY5NRhxdCJYxsmA/giphy.gif" style="width:300px" />
-        </section>  
+            <h2>Increasing the confidence?</h2>
+        </section>
 
         <section>
-          <h2>more confidence?</h2>
-         </section>
+            <h2>Manual testing rationalized</h2>
+            <h3>The infamous Test spreadsheet</h3>
+            <ul>
+                <li>Low level of confidence</li>
+                <li>Takes a lot of time</li>
+                <li>Better at regression finding</li>
+            </ul>
+            <br/>
+            <img src="https://media.giphy.com/media/l1IY5NRhxdCJYxsmA/giphy.gif" style="width:300px"/>
+        </section>
+
+        <section>
+            <h2>more confidence?</h2>
+        </section>
+        <!--
+                <section>
+                  <h2>Automated tests</h2>
+                  <h3>Unit tests</h3>
+
+                  <ul>
+                    <li>Unit can be: a function, a class, a file, a module, a program</li>
+                    <li>In isolation (no I/O)</li>
+                    <li>Fast</li>
+                    <li>Good for testing errors/exception cases</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Automated tests</h2>
+                  <h3>Integration tests</h3>
+
+                  <ul>
+                    <li>Multiple units at once</li>
+                    <li>In isolation of the solution architecture</li>
+                    <li>May do some I/O</li>
+                    <li>Good to test logic splitted between components (eg.SQL queries)</li>
+                    <li>Slower</li>
+                  </ul>
+
+                </section>
+
+                <section>
+                  <h2>Automated tests</h2>
+                  <h3>end to end (e2e)</h3>
+
+                  <ul>
+                    <li>Need the whole solution</li>
+                    <li>Very slow</li>
+                    <li>Hard to maintain</li>
+                    <li>Good for the happy path</li>
+                  </ul>
+                </section>
+        -->
+        <section>
+            <h2>Automated Tests pyramid</h2>
+            <h3>jest, cypress, Junit, Selenium, etc.</h3>
+
+            <div style="clear: both;">
+                <div style="float:right;position:relative;"><span style="position:absolute;left:55px;">Speed</span>
+                    <div style="margin-left:17px;height: 255px;background-color: orange; width: 15px;"></div>
+                    <div class="arrow-down"></div>
+                </div>
+                <div style="float:left;position:relative;"><span style="position:absolute;left:55px;">Cost</span>
+                    <div class="arrow-up"></div>
+                    <div style="margin-left:17px;height: 255px;background-color: cyan; width: 15px;"></div>
+                </div>
+                <div style="margin:auto;background: linear-gradient(#F00, #C55); width: 20%;height:90px;line-height: 90px;"
+                     class="e2e-test-layer">E2E
+                </div>
+                <div style="margin:auto;background: linear-gradient(#0B0, #575); width: 50%;height:90px;line-height: 90px;"
+                     class="integration-test-layer">Integration
+                </div>
+                <div style="margin:auto;background: linear-gradient(#00F, #55C); width: 80%;height:90px;line-height: 90px;"
+                     class="unit-test-layer">Unit
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Test quality</h2>
+            <p>Test must have a really low probability of passing by chance</p>
+            <pre><code data-trim class="javascript">
+            expect(min([4, 2, 3])).not.toBe(null)
+          </code></pre>
+            <pre class="fragment"><code data-trim class="javascript">
+            expect(min([4, 2, 3])).toBeGreaterThan(1)
+          </code></pre>
+            <pre class="fragment"><code data-trim class="javascript">
+            expect(min([4, 2, 3])).toBe(2)
+          </code></pre>
+        </section>
 <!--
         <section>
-          <h2>Automated tests</h2>
-          <h3>Unit tests</h3>
-
-          <ul>
-            <li>Unit can be: a function, a class, a file, a module, a program</li>
-            <li>In isolation (no I/O)</li>
-            <li>Fast</li>
-            <li>Good for testing errors/exception cases</li>
-          </ul>  
-        </section>  
-
-        <section>
-          <h2>Automated tests</h2>
-          <h3>Integration tests</h3>
-
-          <ul>
-            <li>Multiple units at once</li>
-            <li>In isolation of the solution architecture</li>
-            <li>May do some I/O</li>
-            <li>Good to test logic splitted between components (eg.SQL queries)</li>
-            <li>Slower</li>
-          </ul>  
-
-        </section>  
-
-        <section>
-          <h2>Automated tests</h2>
-          <h3>end to end (e2e)</h3>
-
-          <ul>
-            <li>Need the whole solution</li>
-            <li>Very slow</li>
-            <li>Hard to maintain</li>
-            <li>Good for the happy path</li>
-          </ul>  
-        </section>  
+            <h2>Test quality</h2>
+            <p>Test must have a really low probability of passing by chance</p>
+            <pre><code data-trim class="javascript">
+            expect(divide(4,2)).not.toBe(null)
+          </code></pre>
+            <pre class="fragment"><code data-trim class="javascript">
+            expect(divide(4,2)).toBeGreaterThan(3)
+          </code></pre>
+            <pre class="fragment"><code data-trim class="javascript">
+            expect(divide(4,2)).toBe(2)
+          </code></pre>
+        </section>
 -->
         <section>
-          <h2>Automated Tests pyramid</h2>
-          <h3>jest, cypress, Junit, Selenium, etc.</h3>
+            <h2>Mutation testing</h2>
+            <pre style="display:none">
+                flowchart LR
 
-          <div style="clear: both;">
-            <div style="float:right;position:relative;"><span style="position:absolute;left:55px;">Speed</span><div style="margin-left:17px;height: 255px;background-color: orange; width: 15px;"></div><div class="arrow-down"></div></div>
-            <div style="float:left;position:relative;"><span style="position:absolute;left:55px;">Cost</span><div class="arrow-up"></div><div style="margin-left:17px;height: 255px;background-color: cyan; width: 15px;"></div></div>
-            <div style="margin:auto;background: linear-gradient(#F00, #C55); width: 20%;height:90px;line-height: 90px;" class="e2e-test-layer">E2E</div>
-            <div style="margin:auto;background: linear-gradient(#0B0, #575); width: 50%;height:90px;line-height: 90px;" class="integration-test-layer">Integration</div>
-            <div style="margin:auto;background: linear-gradient(#00F, #55C); width: 80%;height:90px;line-height: 90px;" class="unit-test-layer">Unit</div>
+  Original[Original Code] --mutation-->Mutant[Mutant Code]
+  Mutant --> Test{Are the test passing?}
+  Test --Yes--> Alive[Mutant is alive]
+  Test --No--> Dead[Mutant is killed]
+            </pre>
+            <img src="img/mutant.png" alt="mutation process" />
+        </section>
+        <!--
+                <section>
+                  <h2>BDD</h2>
+                  <h3>Cucumber</h3>
+                  <pre><code data-trim class="haskell">
+        Feature: math functions
+          Scenario: divide usage
+            Given a variable set to 12
+            When divide the variable by 2
+            Then the variable should contain 6
+                   </code></pre>
+                </section>
 
-          </div>  
-        </section>  
+                <section>
+                  <h2>BDD</h2>
+                   <pre><code data-trim class="javascript">
+        const { setWorldConstructor } = require("cucumber");
 
-        <section>
-          <h2>Test quality</h2>
-          <p>Test must have a really low probability of passing by chance</p>
-          <pre><code data-trim class="javascript">
-            expect(divide(4,2)).not.toBe(null)
-          </code></pre>  
-          <pre class="fragment"><code data-trim class="javascript">
-            expect(divide(4,2)).toBeGreaterThan(3)
-          </code></pre>  
-          <pre class="fragment"><code data-trim class="javascript">
-            expect(divide(4,2)).toBe(2)
-          </code></pre>  
-        </section>  
+        setWorldConstructor({ variable: 0 });
+        </code></pre>
+        <pre><code data-trim class="javascript">
+        const { Given, When, Then } = require("cucumber");
 
-        <section>
-          <h2>BDD</h2>
-          <h3>Cucumber</h3>
-          <pre><code data-trim class="haskell">
-Feature: math functions
-  Scenario: divide usage
-    Given a variable set to 12      
-    When divide the variable by 2
-    Then the variable should contain 6
-           </code></pre> 
-        </section>  
+        Given("a variable set to {int}", function(number) {
+          this.variable = number;
+        });
 
-        <section>
-          <h2>BDD</h2>
-           <pre><code data-trim class="javascript">
-const { setWorldConstructor } = require("cucumber");
+        When("divide the variable by {int}", function(number) {
+          this.variable = divide(this.variable, number);
+        });
 
-setWorldConstructor({ variable: 0 });
-</code></pre>
-<pre><code data-trim class="javascript">
-const { Given, When, Then } = require("cucumber");
+        Then("the variable should contain {int}", function(number) {
+          expect(this.variable).toBe(number);
+        });
+                   </code></pre>
+                </section>
 
-Given("a variable set to {int}", function(number) {
-  this.variable = number;
-});
 
-When("divide the variable by {int}", function(number) {
-  this.variable = divide(this.variable, number);
-});
-
-Then("the variable should contain {int}", function(number) {
-  expect(this.variable).toBe(number);
-});            
-           </code></pre> 
-        </section>  
-
-<!--
-        <section>
-          <h2>Do we need more confidence?</h2>
-        </section>  -->
+                <section>
+                  <h2>Do we need more confidence?</h2>
+                </section>  -->
 
         <section>
-          <h2><code>divide</code> - Iteration 1</h2>
-          <pre><code data-trim class="js">
+            <h2>Test Driven Development?</h2>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="200 50 590 300"
+                 width="590" height="300" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff"
+                 fill-rule="evenodd" style="background-color:white;" font-size="14" text-anchor="middle">
+                <defs>
+                    <path d="M0 0l4 5h-8z" stroke="none" id="A"/>
+                </defs>
+                <path d="M349.6063 803.1496v9.449" fill="none"/>
+                <path d="M425.197 75.5906h160.63v56.693h-160.63z" fill="#f00"/>
+                <text fill="#000" stroke="none">
+                    <tspan x="505.5118" y="108.5571">Red</tspan>
+                </text>
+                <path d="M595.2756 245.6693h160.63v56.693h-160.63z" fill="#0f0"/>
+                <text fill="#000" stroke="none">
+                    <tspan x="675.5905" y="278.6358">Green</tspan>
+                </text>
+                <path d="M226.7716 245.6693h160.63v56.693h-160.63z" fill="#0f0"/>
+                <text fill="#000" stroke="none">
+                    <tspan x="307.0865" y="278.6358">Refactor</tspan>
+                </text>
+                <g transform="translate(340.1574 132.2835)">
+                    <path fill="none" d="M127.1585 4.393L0 113.3858" stroke-width="3"/>
+                    <use fill="#000" x="88.189" xlink:href="#A"
+                         transform="matrix(.97618915 1.13888311 -1.13888311 .97618915 46.19435467 -100.43696246)"
+                         stroke-width="2"/>
+                </g>
+                <g transform="translate(387.4015 274.0158)">
+                    <path fill="none" d="M6.75 0h201.124" stroke-width="3"/>
+                    <use fill="#000" xlink:href="#A" transform="matrix(0 -1.5 1.5 0 0 0)" stroke-width="2"/>
+                </g>
+                <g transform="translate(566.9291 132.2835)">
+                    <path fill="none" d="M82.8223 108.03L0 0" stroke-width="3"/>
+                    <use fill="#000" x="57.9528" y="75.5905" xlink:href="#A"
+                         transform="matrix(-1.19040762 .91264982 -.91264982 -1.19040762 224.90431097 150.4786451)"
+                         stroke-width="2"/>
+                </g>
+            </svg>
+        </section>
+
+        <section>
+            <h2><code>divide</code> - Iteration 1</h2>
+            <pre><code data-trim class="js">
 test("return the number passed if divided by 1", () => {
   expect(divide(12, 1)).toBe(12);  
 })
           </code></pre>
-          <pre class="fragment"><code data-trim class="js">
+            <pre class="fragment"><code data-trim class="js">
 function divide(n: number, k: number): number {
   return 12;
 }
           </code></pre>
 
-        </section>  
+        </section>
 
         <section>
-          <h2><code>divide</code> - Iteration 2</h2>
-          <pre><code data-trim class="js">
+            <h2><code>divide</code> - Iteration 2</h2>
+            <pre><code data-trim class="js">
 test("return the half the number if divided by 2", () => {
   expect(divide(12, 2)).toBe(6);  
 })
           </code></pre>
-          <pre class="fragment"><code data-trim class="js">
+            <pre class="fragment"><code data-trim class="js">
 function divide(n: number, k: number): number {
   return 12 / k;
 }
@@ -334,13 +445,13 @@ function divide(n: number, k: number): number {
         </section>
 
         <section>
-          <h2><code>divide</code> - Iteration 3</h2>
-          <pre><code data-trim class="js">
+            <h2><code>divide</code> - Iteration 3</h2>
+            <pre><code data-trim class="js">
 test("return the first number divided by the second", () => {
   expect(divide(16, 8)).toBe(2);  
 })
           </code></pre>
-          <pre class="fragment"><code data-trim class="js">
+            <pre class="fragment"><code data-trim class="js">
 function divide(n: number, k: number): number {
   if (k === 8) {
     return 2;
@@ -350,10 +461,10 @@ function divide(n: number, k: number): number {
           </code></pre>
 
         </section>
-          <section>
-          <h2><code>divide</code> - Iteration 54</h2>
-        
-          <pre class="fragment"><code data-trim class="js">
+        <section>
+            <h2><code>divide</code> - Iteration 54</h2>
+
+            <pre class="fragment"><code data-trim class="js">
 function divide(n: number, k: number): number {
   if( (k === 8 && n === 16) || (n === 18 && k === 9)) {
     return 2;
@@ -373,39 +484,39 @@ function divide(n: number, k: number): number {
 
 
         <section>
-          <h2>All those suffer from the same problem</h2>
-          <h3 class="fragment">They are example based</h3>
-        </section>  
+            <h2>All those suffer from the same problem</h2>
+            <h3 class="fragment">They are example based</h3>
+        </section>
 
         <section>
-          <h1>Anecdoctes are not proofs</h1>
-        </section>  
+            <h1>Anecdoctes are not proofs</h1>
+        </section>
 
         <section>
-          <div style="clear:both;">
-               <blockquote>
-                  Testing shows the presence, not the absence of bugs 
-               </blockquote>
-               <span style="display:block;text-align:right;"><span>Dijkstra</span></span>
-          </div>
-        </section>  
+            <div style="clear:both;">
+                <blockquote>
+                    Testing shows the presence, not the absence of bugs
+                </blockquote>
+                <span style="display:block;text-align:right;"><span>Dijkstra</span></span>
+            </div>
+        </section>
 
         <section>
-          <h2>A lot more confidence?</h2>
-          <div  class="fragment">
-            <h3>A lot more tests</h3>
-            <image src="https://media.giphy.com/media/4UMgC1X6SX7AA/giphy.gif"  alt="Bugs bunny more"/>
-          </div>
-        </section>  
+            <h2>A lot more confidence?</h2>
+            <div class="fragment">
+                <h3>A lot more tests</h3>
+                <image src="https://media.giphy.com/media/4UMgC1X6SX7AA/giphy.gif" alt="Bugs bunny more"/>
+            </div>
+        </section>
 
         <section>
-          <h2>Property Based testing</h2>
-          <h3>FastCheck, QuickCheck, ScalaCheck, etc.</h3>
-        </section>  
+            <h2>Property Based testing</h2>
+            <h3>FastCheck, QuickCheck, ScalaCheck, etc.</h3>
+        </section>
 
         <section>
-          <h2>Doing hundreds of tests<br /> in 3 lines</h2>
-          <pre class="fragment"><code data-trim class="js">
+            <h2>Doing hundreds of tests<br/> in 3 lines</h2>
+            <pre class="fragment"><code data-trim class="js">
 test("return the number if divided by 1", () => {
   fc.assert(
     fc.property(fc.integer(), (n: number) => {
@@ -413,8 +524,8 @@ test("return the number if divided by 1", () => {
     })
   );
 })                
-              </code></pre> 
-              <pre class="fragment"><code data-trim class="js">
+              </code></pre>
+            <pre class="fragment"><code data-trim class="js">
 test("return 0 if the top number is 0", () => {
   fc.assert(
     fc.property(fc.integer(), (n: number) => {
@@ -422,13 +533,13 @@ test("return 0 if the top number is 0", () => {
     })
   );
 })                
-              </code></pre> 
-        </section>  
+              </code></pre>
+        </section>
 
-         <section>
-          <h2>Testing invariants</h2>
+        <section>
+            <h2>Testing invariants</h2>
 
-          <pre class="fragment"><code data-trim class="js">
+            <pre class="fragment"><code data-trim class="js">
 test("divide and * are inverse", () => {
   const arbInt = fc.integer();
   const arbNonZeroInt =  fc.integer().filter(t => t !== 0);
@@ -439,150 +550,319 @@ test("divide and * are inverse", () => {
     })
   );
 });                
-          </code></pre> 
+          </code></pre>
         </section>
 
         <section>
-          <h2>Still example based</h2>
-          <div class="fragment">
-            <h3>Will not easily catch</h3>
-<pre><code data-trim class="js">            
+            <h2>Still example based</h2>
+            <div class="fragment">
+                <h3>Will not easily catch</h3>
+                <pre><code data-trim class="js">
 function divide(n: number, k: number): number {
   if (n === 574638742 && k == 94731874) {
       return -2435;
   }
   return n / k;
 }
-</code></pre>                        
-          </div>  
-        </section>  
+</code></pre>
+            </div>
+        </section>
 
         <section>
-          <h2>Absolute confidence?</h2>
-          <h3 class="fragment">We can't test <em>all</em> inputs</h3>
-        </section>  
+            <h2>Absolute confidence?</h2>
+            <h3 class="fragment">We can't test <em>all</em> inputs</h3>
+        </section>
 
         <section>
-          <h2>Epistemology change!</h2>
-          <div class="fragment">
-            <h3 >Welcome in math world</h3>
-            <img src="https://media.giphy.com/media/BmmfETghGOPrW/giphy.gif" alt="math meme" />
-          </div>
-        </section>  
+            <h2>Epistemology change!</h2>
+            <div class="fragment">
+                <h3>Welcome in math world</h3>
+                <img src="https://media.giphy.com/media/BmmfETghGOPrW/giphy.gif" alt="math meme"/>
+            </div>
+        </section>
 
         <section>
-          <h2>Type System</h2>
-          <h3>Choose (at most) 2 between:</h3>
-          <ul>
-            <li class="fragment">Soundness: if it compiles, it works</li>
-            <li class="fragment">Decidability: it's possible to write a type checker</li>
-            <li class="fragment">Completness: all correct programs compile</li>
-          </ul>  
+            <h2>Mathematical proof</h2>
+
+            <ul>
+                <li>A mathematical statement is considered <strong>proven</strong> is we can deduce it from
+                    <strong>axioms</strong> and a <strong>formal system</strong></li>
+                <li>Type Theory is a formal system</li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>What's a type?</h2>
+            <ul>
+                <li>a type defines the set of values a term may have (eg. <code class="box">const x:boolean</code> implies
+                    <code class="box">x</code> can be <code class="box">true</code> or <code class="box">false</code></li>
+                <li>a type defines the set of operations that can be applied to a term (eg. <code class="box">const not = (a:
+                    boolean):boolean => !a</code> )
+                </li>
+            </ul>
+
+
+        </section>
+
+
+        <section>
+            <h2>Kind</h2>
+            <ul>
+                <li>the type of type is often named <strong>kind</strong></li>
+                <li>kind of <code class="box">number</code> ? <code class="box">Type</code></li>
+                <li class="fragment">kind of <code class="box">string</code> ? <code class="fragment box">Type</code></li>
+                <li class="fragment">kin of <code class="box">Array</code> ? <code class="fragment box">Type => Type</code></li>
+            </ul>
+            <p class="fragment">
+                <code class="box">Array&lt;string></code> or <code class="box">Array&lt;number></code> are types
+            </p>
+            <p class="fragment">
+                <code class="box">Array</code> is not a type, it's a <strong>type constructor</strong>
+            </p>
+        </section>
+
+        <section>
+            <h2>Dependent types</h2>
+            <p>a type depends on a term</p>
+            <pre><code data-trim>
+// Pseudo code
+type Vect&lt;n :number, A: Type> = A[] & {length: n}
+// Kind of Vect is number => Type => Type
+
+
+Vect&lt;1, string>  // a list of string with one element
+Vect&lt;3, number>  // a list of number with three elements
+
+const concat = &lt;A: Type, n: number, m: number>(
+                v1: Vect&lt;n, A>,
+                v2: Vect&lt;m, A>): Vect&lt;n + m, A> => {
+                  return [...v1, ...v2]
+                }
+            </code></pre>
+        </section>
+
+        <!--
+                <section>
+                    <h2>Type Systems expressiveness</h2>
+
+                    <div style="text-align: center">
+                        <img src="img/lambdacube.png" style="width:180px; background:white"/>
+                    </div>
+                    <ul>
+                        <li class="fragment">λ→: simple types : <code class="inline">string</code> ou <code
+                                class="inline">number</code></li>
+                        <li class="fragment">λ2: a term depends on a type, aka polymorphism <code class="inline"> id&lt;A>(a:
+                            A) => a</code></li>
+                        <li class="fragment">λω: a type depends on a type, aka generics <code
+                                class="inline">Array&lt;A></code>
+                        </li>
+                        <li class="fragment">λP: a type depends on a term <code class="inline">Vect&lt;A, n> </code>
+                            <code
+                                    class="inline">Vect&lt;string, 1> or Vect&lt;number, 3></code>
+                        </li>
+                    </ul>
+                </section>
+                -->
+
+
+        <section>
+            <h2>Curry-Howard Isomorphism</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Logic</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> => (implication)</td>
+                    <td> <code class="box">=></code> (function)</td>
+                </tr>
+                <tr>
+                    <td> AND (conjuction)</td>
+                    <td> <code class="box">&</code> (intersection type)</td>
+                </tr>
+                <tr>
+                    <td> OR (disjunction)</td>
+                    <td> <code class="box">|</code> (union type)</td>
+                </tr>
+
+                <tr>
+                    <td> ∀ (universal quantification)</td>
+                    <td> <code class="box">&lt;A: T>fn(a: A)</code> (dependent function)</td>
+                </tr>
+
+                <tr>
+                    <td>etc.</td>
+                    <td>etc.</td>
+                </tr>
+                </tbody>
+            </table>
 
         </section>
 
         <section>
-          <h2>Modeling inputs and outputs</h2>
-          <pre class="fragment"><code class=" typescript" data-trim >const divide = (x: any, y: any): any  => x / y</code></pre>
-          <pre class="fragment"><code class=" typescript" data-trim >const divide = (x: number, y: number): number  => x / y</code></pre>
-          <pre class="fragment"><code class=" typescript" data-trim >const divide = (x: number, y: NotZeroNumber): number  => x / y</code></pre>
-        </section>  
+            <h2>Curry-Howard Isomorphism</h2>
+            <pre><code data-trim class="typescript">
+// Forall types A and B, if an array of A and array of B can be built,
+// then an array of A OR B can be built
+const concat = &lt;A,B>(a1: A[], b1: B[]): (A | B)[] => {
+    return [...a1, ...b1]
+};
+
+            </code></pre>
+        </section>
 
         <section>
-          <h2>Prevent invalid state</h2>
-<pre><code class="typescript" data-trim >
-type User = {
-  id?: number;
-  name?: string;
-}
-function createUser(user: User): User { //... }
-function listAllUsers(user: User): User[] { //... }
+            <h2>Curry-Howard Isomorphism</h2>
+            <pre><code data-trim class="typescript">
+            const add = (a: number, b:number) => a + b;
 
-</code></pre>          
-<pre><code class="fragment typescript" data-trim >
-type UserCreate = {
-  name: string;
-}
-type User = {
-  id: number;
-  name: string;
-}
-function createUser(user: UserCreate): User { //... }
-</code></pre>      
-<pre><code class="fragment typescript" data-trim >   
-type UserSearch = { kind: 'id', value: number } | 
-                  { kind: 'name', value: string }
+            const at =
+              &lt;A>(v: Vect&lt;n, A>, m: number, proof: m < n == true): A => {
+              return v[m]
+            }
 
-function listAllUsers(user: UserSearch): User[] { //... }
-</code></pre>         
-        </section>  
+
+            </code></pre>
+            <pre><code data-trim class="typescript">
+
+            // Here `==` is a type constructor with kind Type => Type => Type
+            const isZeroNeutral = (a: number): add(a, 0) == a  => {
+                // refl is the only value of type `==`
+                // it compiles only the compiler can prove the equality
+                return refl;
+            }
+
+            </code></pre>
+        </section>
+
 
         <section>
-          <h2>Polymorphism</h2>
-          <div style="position: relative">
-          <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >   
-function &lt;A>whatAmI(a: A): A {
-  // How to implement ? 
-}            
-          </code></pre>
-          <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >   
-function &lt;A>whatAmI(a: A): A {
-  return a; 
-}            
-          </code></pre>
-           <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >   
-function &lt;A, B>whatAmI(a: A): B {
-  // How to implement ? 
-}            
-          </code></pre>
-          <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >   
-function &lt;A, B>whatAmI(a: A): B {
-  throw new Error();
-}            
-          </code></pre>
-          <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >   
-function &lt;A, B>whatAmI(a: A, fn: (a:A) => B): B {
-   // How to implement ? 
-}            
-          </code></pre>
-           <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >   
-function &lt;A, B>whatAmI(a: A, fn: (a:A) => B): B {
-   return fn(a)
-}            
-          </code></pre>
-          </div>
-        </section>    
+            <h2>And finally we can be absolutely confident!<sup>*</sup></h2>
+            <p class="fragment">* except bugs in compilers, finite memory of computers, types not precise enough, properties non provable (cf Gödel theorem),  etc. </p>
+        </section>
+
+
+        <!--
+
+                <section>
+                  TODO REMOVE !
+                  <h2>Type System</h2>
+                  <h3>Choose (at most) 2 between:</h3>
+                  <ul>
+                    <li class="fragment">Soundness: if it compiles, it works</li>
+                    <li class="fragment">Decidability: it's possible to write a type checker</li>
+                    <li class="fragment">Completness: all correct programs compile</li>
+                  </ul>
+
+                </section>
+
+                <section>
+                  <h2>Modeling inputs and outputs</h2>
+                  <pre class="fragment"><code class=" typescript" data-trim >const divide = (x: any, y: any): any  => x / y</code></pre>
+                  <pre class="fragment"><code class=" typescript" data-trim >const divide = (x: number, y: number): number  => x / y</code></pre>
+                  <pre class="fragment"><code class=" typescript" data-trim >const divide = (x: number, y: NotZeroNumber): number  => x / y</code></pre>
+                </section>
+
+                <section>
+                  <h2>Prevent invalid state</h2>
+        <pre><code class="typescript" data-trim >
+        type User = {
+          id?: number;
+          name?: string;
+        }
+        function createUser(user: User): User { //... }
+        function listAllUsers(user: User): User[] { //... }
+
+        </code></pre>
+        <pre><code class="fragment typescript" data-trim >
+        type UserCreate = {
+          name: string;
+        }
+        type User = {
+          id: number;
+          name: string;
+        }
+        function createUser(user: UserCreate): User { //... }
+        </code></pre>
+        <pre><code class="fragment typescript" data-trim >
+        type UserSearch = { kind: 'id', value: number } |
+                          { kind: 'name', value: string }
+
+        function listAllUsers(user: UserSearch): User[] { //... }
+        </code></pre>
+                </section>
+
+                <section>
+                  <h2>Polymorphism</h2>
+                  <div style="position: relative">
+                  <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >
+        function &lt;A>whatAmI(a: A): A {
+          // How to implement ?
+        }
+                  </code></pre>
+                  <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >
+        function &lt;A>whatAmI(a: A): A {
+          return a;
+        }
+                  </code></pre>
+                   <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >
+        function &lt;A, B>whatAmI(a: A): B {
+          // How to implement ?
+        }
+                  </code></pre>
+                  <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >
+        function &lt;A, B>whatAmI(a: A): B {
+          throw new Error();
+        }
+                  </code></pre>
+                  <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >
+        function &lt;A, B>whatAmI(a: A, fn: (a:A) => B): B {
+           // How to implement ?
+        }
+                  </code></pre>
+                   <pre class="fragment fade-in-then-out" style="position: absolute;top:0;"><code class="typescript" data-trim >
+        function &lt;A, B>whatAmI(a: A, fn: (a:A) => B): B {
+           return fn(a)
+        }
+                  </code></pre>
+                  </div>
+                </section>
+
+                <section>
+                  <h2>Curry-Howard Isomorphism</h2>
+                  <h3>Logic and Type System are equivalent</h3>
+                  <pre class="fragment" ><code class=" haskell" data-trim style="font-size: 90%;">
+        divide: Float -> Float -> Float
+        divide x y = x / y
+
+        divideInvTimes: (x: Float) -> (y: Float) -> (divide x y) * y = x
+        divideInvTimes x y = ?left_to_the_reader
+                  </code></pre>
+                </section>
+                        -->
 
         <section>
-          <h2>Curry-Howard Isomorphism</h2>
-          <h3>Logic and Type System are equivalent</h3>
-          <pre class="fragment" ><code class=" haskell" data-trim style="font-size: 90%;">
-divide: Float -> Float -> Float
-divide x y = x / y
-
-divideInvTimes: (x: Float) -> (y: Float) -> (divide x y) * y = x
-divideInvTimes x y = ?left_to_the_reader            
-          </code></pre>  
-        </section>  
+            <h2>Proving a program</h2>
+            <ul>
+                <li>Essentially done by hand</li>
+                <li>Impractical...</li>
+            </ul>
+        </section>
 
         <section>
-          <h2>Proving a program</h2> 
-          <ul>
-            <li>Essentially done by hand</li>
-            <li>Impractical...</li>
-          </ul>  
-        </section>  
+            <h2>We're sure our code respect 100% the spec</h2>
+            <h3 class="fragment">But what if the spec is wrong‽</h3>
+        </section>
 
         <section>
-          <h2>We're sure our code respect 100% the spec</h2>
-          <h3 class="fragment">But what if the spec is wrong‽</h3>
-        </section>  
+            <h2>Formal Specification</h2>
+            <h3>TLA+, Alloy, etc.</h3>
 
-        <section>
-          <h2>Formal Specification</h2>
-          <h3>TLA+, Alloy, etc.</h3>
-          
-          <pre><code data-trim>
+            <pre><code data-trim>
 sig Person {
   children: set Person
   parent: lone Person
@@ -593,108 +873,112 @@ fact {
 }
 
           </code></pre>
-          <!-- https://sites.cs.ucsb.edu/~bultan/courses/267/lectures/l18-1.pdf -->
-        </section>  
+            <!-- https://sites.cs.ucsb.edu/~bultan/courses/267/lectures/l18-1.pdf -->
+        </section>
 
         <section>
-          <h2>Wrap up</h2>
-          <ul>
-           <li>types and tests can (must!) be used in conjunction</li>
-          </ul>           
+            <h2>Wrap up</h2>
+            <ul>
+                <li>types and tests can (must!) be used in conjunction</li>
+            </ul>
 
-          
-          <div id="wrap-up-chart" style="width:700px; height:400px; margin: 25px auto;"></div>
+
+            <div id="wrap-up-chart" style="width:700px; height:400px; margin: 25px auto;"></div>
+            <script>
+                Highcharts.chart('wrap-up-chart', {
+                    xAxis: {
+                        min: 0,
+                        max: 5,
+                        title: {
+                            text: 'criticity * lifetime'
+                        },
+                        labels: {
+                            enabled: false
+                        }
+                    },
+                    title: {
+                        text: ''
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 5,
+                        title: {
+                            text: 'confidence level'
+                        },
+                        labels: {
+                            enabled: false
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    annotations: [{
+                        labels: [{
+                            point: {
+                                x: 4.5,
+                                y: 4.5,
+                                xAxis: 0,
+                                yAxis: 0
+                            },
+                            text: 'Space Shuttle'
+                        }, {
+                            point: {
+                                x: 0.5,
+                                y: 0.5,
+                                xAxis: 0,
+                                yAxis: 0
+                            },
+                            text: 'One shot script'
+                        }],
+                        labelOptions: {
+                            x: 0, y: 60
+                        }
+                    }],
+                    series: [{
+                        type: 'line',
+                        color: 'black',
+                        data: [0, 1, 2, 3, 4, 5]
+                    }]
+
+                });
+
+            </script>
+        </section>
+
+        <section>
+            <h2>Conclusion</h2>
+            <ul>
+                <li>Knowledge exists in a framework</li>
+                <li>Confidence level must be consistent with criticity of the feature/application</li>
+                <li>Dependent types are becoming more and more mainstream (literal types in TS, path dependent types in
+                    Scala, etc.)
+                </li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>Questions&nbsp;?</h2>
+        </section>
+
+
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
 <script>
-  
-  Highcharts.chart('wrap-up-chart', {
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
 
-  xAxis: {
-    min:0,
-    max:5,
-    title: {
-      text:'criticity * lifetime'
-    },
-    labels: {
-      enabled:false
-    }
-  },
-  title: {
-  text: ''
-  },
-  yAxis: {
-    min:0,
-    max:5,
-    title: {
-      text:'confidence level'
-    },
-    labels: {
-      enabled:false
-    }
-    
-  },
-legend: {
-enabled: false
-},
- annotations: [{
-        labels: [{
-            point: {
-                x: 4.5,
-                y: 4.5,
-                xAxis: 0,
-                yAxis: 0
-            },
-            text: 'Space Shuttle'
-        }, {
-            point: {
-                x: 0.5,
-                y: 0.5,
-                xAxis: 0,
-                yAxis: 0
-            },
-            text: 'One shot script'
-        }],
-        
-        labelOptions: {
-            x: 0, y: 60
-        }
-    }],
-  series: [{
-    type: 'line',
-    color: 'black',
-    data: [0,1,2,3,4, 5]
-  }]
-
-});
-
-</script>  
-        </section>  
-
-		
-				
-
-				<section>
-					<h2>Questions&nbsp;?</h2>
-				</section>
-
-
-
-			</div>
-		</div>
-
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+</script>
+</body>
 </html>
