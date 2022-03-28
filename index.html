@@ -438,7 +438,11 @@ test("return the lowest number if 2 elements in array", () => {
           </code></pre>
             <pre class="fragment"><code data-trim class="js">
 function min(arr: number[]): number {
-  return arr[0];
+    if(arr.length == 2) {
+         return 2;
+    } else {
+         return 12;
+    }
 }
           </code></pre>
 
@@ -537,7 +541,7 @@ test("return the number if only one number in the array", () => {
             <pre class="fragment"><code data-trim class="js">
 test("return the same number whatever the order of the array", () => {
   fc.assert(
-    fc.property(fc.array(fc.integer()), (arr: [number]) => {
+    fc.property(fc.array(fc.integer()), (arr: number[]) => {
       expect(min(arr)).toBe(min(shuffle(arr)));
     })
   );
@@ -554,7 +558,7 @@ function min(arr: number[]): number {
   if (arr.length = 123 && arr[12] = 23.343) {
      return -2;
   } else {
-     return arr.reduce( (a,b) => Math.min(a,b))
+     return arr.reduce((a,b) => Math.min(a,b))
   }
 }
 </code></pre>
@@ -605,7 +609,7 @@ function min(arr: number[]): number {
                 <li>the type of type is often named <strong>kind</strong></li>
                 <li>kind of <code class="box">number</code> ? <code class="box">Type</code></li>
                 <li class="fragment">kind of <code class="box">string</code> ? <code class="fragment box">Type</code></li>
-                <li class="fragment">kin of <code class="box">Array</code> ? <code class="fragment box">Type => Type</code></li>
+                <li class="fragment">kind of <code class="box">Array</code> ? <code class="fragment box">Type => Type</code></li>
             </ul>
             <p class="fragment">
                 <code class="box">Array&lt;string></code> or <code class="box">Array&lt;number></code> are types
@@ -684,7 +688,7 @@ const concat = &lt;A: Type, n: number, m: number>(
 
                 <tr>
                     <td> ∀ (universal quantification)</td>
-                    <td> <code class="box">&lt;A: T>fn(a: A)</code> (dependent function)</td>
+                    <td> <code class="box">&lt;A>fn(a: A)</code> (dependent function)</td>
                 </tr>
 
                 <tr>
@@ -699,7 +703,8 @@ const concat = &lt;A: Type, n: number, m: number>(
         <section>
             <h2>Curry-Howard Isomorphism</h2>
             <pre><code data-trim class="typescript">
-// Forall types A and B, if an array of A and array of B can be built,
+// Forall types A and B,
+// if an array of A and array of B can be built,
 // then an array of A OR B can be built
 const concat = &lt;A,B>(a1: A[], b1: B[]): (A | B)[] => {
     return [...a1, ...b1]
@@ -711,6 +716,9 @@ const concat = &lt;A,B>(a1: A[], b1: B[]): (A | B)[] => {
         <section>
             <h2>Curry-Howard Isomorphism</h2>
             <pre><code data-trim class="typescript">
+            // Here `==` is a type constructor with kind
+            // Type => Type => Type
+
             const at =
               &lt;A>(v: Vect&lt;n, A>, m: number, proof: m < n == true): A => {
               return v[m]
@@ -720,13 +728,9 @@ const concat = &lt;A,B>(a1: A[], b1: B[]): (A | B)[] => {
             </code></pre>
             <pre><code data-trim class="typescript">
             const min = (arr: number[]) => {
-                return arr.length === 1 ?
-                  arr[0] :
-                  Math.min(arr[0], min(arr.slice(1))
+                return arr.reduce((a,b) => Math.min(a,b))
             }
 
-            // Here `==` is a type constructor with kind
-            // Type => Type => Type
 
             const returnTheNumberIfOnlyOne =
               (a: number): min([a]) == a  => {
@@ -925,7 +929,7 @@ fact {
                     },
                     yAxis: {
                         min: 0,
-                        max: 5,
+                        max: Math.ceil(Math.log(6)),
                         title: {
                             text: 'confidence level'
                         },
@@ -940,7 +944,7 @@ fact {
                         labels: [{
                             point: {
                                 x: 4.5,
-                                y: 4.5,
+                                y: Math.log(6),
                                 xAxis: 0,
                                 yAxis: 0
                             },
@@ -961,7 +965,7 @@ fact {
                     series: [{
                         type: 'line',
                         color: 'black',
-                        data: [0, 1, 2, 3, 4, 5]
+                        data: [1, 2, 3, 4, 5, 6].map(i => Math.log(i))
                     }]
 
                 });
@@ -972,9 +976,9 @@ fact {
         <section>
             <h2>Conclusion</h2>
             <ul>
-                <li>Knowledge exists in a framework</li>
-                <li>Confidence level must be consistent with criticity of the feature/application</li>
-                <li>Dependent types are becoming more and more mainstream (literal types in TS, path dependent types in
+                <li class="fragment">Knowledge exists in a framework</li>
+                <li class="fragment">Confidence level must be consistent with criticity of the feature/application</li>
+                <li class="fragment">Dependent types are becoming more and more mainstream (literal types in TS, path dependent types in
                     Scala, etc.)
                 </li>
             </ul>
