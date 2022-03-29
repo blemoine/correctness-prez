@@ -717,7 +717,7 @@ const concat = &lt;A,B>(a1: A[], b1: B[]): (A | B)[] => {
             <h2>Curry-Howard Isomorphism</h2>
             <pre><code data-trim class="typescript">
             // Here `==` is a type constructor with kind
-            // Type => Type => Type
+            // U => V => Type
 
             const at =
               &lt;A>(v: Vect&lt;n, A>, m: number, proof: m < n == true): A => {
