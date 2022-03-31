@@ -741,6 +741,23 @@ const concat = &lt;A,B>(a1: A[], b1: B[]): (A | B)[] => {
 
             </code></pre>
         </section>
+
+        <section>
+            <h2>Idris</h2>
+            <pre><code data-trim class="haskell">
+
+            min: Ord a => Vec (S n) a -> a
+            min (x :: Nil) = x
+            min (x :: xs) = let y = min xs in
+                               if y > x then x
+                               else y
+
+            return_number_if_only_one: Ord a => a -> min (a :: Nil) == a
+            return_number_if_only_one = refl
+
+            </code></pre>
+          
+        </section>
         <!--
         <section>
             <h2>Curry-Howard Isomorphism</h2>
